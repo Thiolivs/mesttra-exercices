@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <h1>
+            Minha Lista de Pokemons
+        </h1>
+        <ul id = "pokemons">   </ul>
+    </main>   
+    <script>
+
+        const listaTarefasHtml = document.getElementById('pokemons');
+        const Api = fetch('https://pokeapi.co/api/v2/pokemon?limit=1000');
+        Api.then( (response) => {
+            return response.json()            
+        } ).then((pokemons)=>{
+            pokemons.results.map((pokemon, index)=> {
+            listaTarefasHtml.insertAdjacentHTML('beforeend', `<li>
+            <p>nome: ${pokemon.name} </p>  
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index+1}.png"
+            </li>`) 
+            })
+        })
+    </script>
+
+</body>
+</html>

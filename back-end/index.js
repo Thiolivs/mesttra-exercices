@@ -1,7 +1,7 @@
 // API - importing express, crypto, cors
 const express = require ('express');
 const crypto = require('crypto');
-const cors = require('cors')
+const cors = require('cors');
 
 // initialize webserver with express
 const app = express();
@@ -30,6 +30,12 @@ const tarefas = [
         text: 'Estudar Javascript',
         prazo: '10 dias'
     },
+
+    {
+        id: crypto.randomUUID(),
+        text: 'Estudar Desenvolvimento de Jogos',
+        prazo: '3 dias'
+    }
 
 ]
 
